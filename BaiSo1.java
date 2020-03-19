@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class test {
+public class BaiSo1 {
     public static void function1(String[] a, int[] b) {
         int n = a.length;
         for (int i = 0; i < n; i++) {
-            System.out.println("Ho " + a[i] + " dung " + (b[i] * 1600));
+            System.out.println("Ho " + a[i] + " dung " + (b[i] * 1600) + "đ");
         }
     }
 
@@ -51,21 +51,45 @@ public class test {
         }
     }
 
+    public static void function4(String[] infor){
+        int n= infor.length;
+        String temp = "Null";
+        for (int i=0; i< n; i++){
+            for(int j=i+1; j<n; j++){
+                if(infor[i].substring(infor[i].lastIndexOf(" ")).compareTo(infor[j].substring(infor[j].lastIndexOf(" "))) > 0){
+                    temp = infor[i];
+                    infor[i]= infor[j];
+                    infor[j]= temp;
+                }
+            }
+        }
+
+        for (int i=0; i<n; i++){
+            System.out.println(infor[i]);
+        }
+
+    }
+
 
     public static void main(String[] agrs) {
 
-        String[] infor = {"Truong Tuan Tu ", "Luong Xuan Truong", "Bui Kim Quyen", "Duong Hoai Phuong",
+        String[] infor = {"Truong Tuan Tu", "Luong Xuan Truong", "Bui Kim Quyen", "Duong Hoai Phuong",
                 "Nguyen Van Anh", "Vuong Thu Hien", "Mai Khanh Van", "Lam Ngoc Linh", "Cao Minh Truong", "Nguyen Van Khai",
                 "Ngo Kim Dung"};// danh sach cac ho
 
         int[] kwh = {10, 20, 30, 40, 50, 60, 70, 80, 45, 55, 87};// so kwh su dung
+        System.out.println("CHAO MUNG ACE\n MENU GOM CO 4 CHUC NANG\n1.In ra ten va so kwh su dung cua tung ho\n" +
+                "2.In ra 3 ho su dung nhieu nhat\n" +
+                "3.In ra cac ho co ten Truong\n" +
+                "4.Sap xep ten cac ho theo bang chu cai..\n" +
+                "XIN MOI CHON TU 1 den 4:....");
 
         Scanner sc = new Scanner(System.in);
 
         int loop = 1;
 
         do{
-        int key=sc.nextInt();
+            int key=sc.nextInt();
             switch (key) {
                 case 1:
                     function1(infor, kwh);//in ra ten va so kwh su dung
@@ -75,6 +99,10 @@ public class test {
                     break;
                 case 3:
                     function3(infor, kwh);//cac ho ten Truong
+                    break;
+                case 4:
+                    function4(infor);// sap xep theo ten
+                    break;
 
             }
         }
