@@ -81,7 +81,7 @@ public class BaiSo1 {
         System.out.println("CHAO MUNG ACE\n MENU GOM CO 4 CHUC NANG\n1.In ra ten va so kwh su dung cua tung ho\n" +
                 "2.In ra 3 ho su dung nhieu nhat\n" +
                 "3.In ra cac ho co ten Truong\n" +
-                "4.Sap xep ten cac ho theo bang chu cai..\n" +
+                "4.Sap xep ten cac ho theo bang chu cai\n" +
                 "XIN MOI CHON TU 1 den 4:....");
 
         Scanner sc = new Scanner(System.in);
@@ -93,15 +93,23 @@ public class BaiSo1 {
             switch (key) {
                 case 1:
                     function1(infor, kwh);//in ra ten va so kwh su dung
+                    System.out.println("\n\n");
+                    System.out.println("Mời chọn chức năng tiếp theo:");;
                     break;
                 case 2:
                     function2(infor, kwh);//3 ho su dung nhieu nhat
+                    System.out.println("\n\n");
+                    System.out.println("Mời chọn chức năng tiếp theo:");;
                     break;
                 case 3:
                     function3(infor, kwh);//cac ho ten Truong
+                    System.out.println("\n\n");
+                    System.out.println("Mời chọn chức năng tiếp theo:");;
                     break;
                 case 4:
                     function4(infor);// sap xep theo ten
+                    System.out.println("\n\n");
+                    System.out.println("Mời chọn chức năng tiếp theo:");;
                     break;
 
             }
