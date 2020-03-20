@@ -158,14 +158,74 @@ public class Bai2 {
         }
     }
 
+        public static void function9(String[]athletes){
+        String temp="null";
+            for (int i=0; i< athletes.length; i++){
+                for (int j=i+1; j< athletes.length; j++){
+                    if(athletes[i].substring(athletes[i].lastIndexOf(" ")).length() > athletes[j].substring(athletes[j].lastIndexOf(" ")).length()){
+                        temp = athletes[i];
+                        athletes[i]= athletes[j];
+                        athletes[j]= temp;
+                    }
+                }
+            }
+
+            for (int i=0; i<athletes.length; i++){
+                System.out.println(athletes[i]);
+            }
+        }
+    public static void function10(String[] athletes, int[] result1, int[] result2, int[] result3) {
+        int c = 0;
+        int[] total = new int[10];
+
+        for (int i = 0; i < athletes.length; i++) {
+            int sum = 0;
+            sum = result1[i] + result2[i] + result3[i];
+            total[c] = sum;
+            c++;
+        }
+
+        String temp11 = "Null";
+        int temppp = 0;
+        for (int i = 0; i < athletes.length; i++) {
+            for (int j = i + 1; j < athletes.length; j++) {
+                if (total[i] >= total[j]) {
+                    temppp = total[i];
+                    total[i] = total[j];
+                    total[j] = temppp;
+
+                    temp11 = athletes[i];
+                    athletes[i] = athletes[j];
+                    athletes[j] = temp11;
+                }
+
+            }
+        }
+
+        int i =0 ,check=0;
+        while (i<athletes.length) {
+            if(i+1<athletes.length && total[i]==total[i+1] && check ==0) {
+                check =1;
+                System.out.println("---Nhung VDV co chung thanh tich "+total[i]);
+                System.out.println(athletes[i]+" ||"+total[i]+"kg");
+                System.out.println(athletes[i+1]+" ||"+total[i+1]+"kg");
+            }
+            else check = 0;
+            i++;
+            if(i+1<athletes.length && total[i]==total[i+1] && check==1) {
+                System.out.println(athletes[i+1]+" ||"+total[i+1]+"kg");
+            }
+        }
+    }
+
 
 
     public static void main(String[] args) {
         String[] athletes = {"Truong Tuan Tu", "Luong Xuan Truong", "Bui Kim Quyen", "Duong Hoai Phuong",
                 "Nguyen Van Tanh", "Vuong Thu Anh", "Mai Khanh Van", "Lam Ngoc Linh", "Cao Minh Truong", "Nguyen Van Khan"};
-        int[] result1 = {20, 20, 20, 40, 60, 60, 70, 80, 20, 55};
-        int[] result2 = {20, 20, 20, 40, 60, 60, 64, 69, 20, 96};
-        int[] result3 = {20, 20, 20, 40, 60, 60, 55, 70, 20, 70};
+        int[] result1 = {20, 20, 20, 40, 60, 60, 70, 80, 69, 55};
+        int[] result2 = {20, 20, 20, 40, 60, 60, 64, 69, 96, 96};
+        int[] result3 = {20, 20, 20, 40, 60, 60, 55, 70, 55, 70};
 
         Scanner sc = new Scanner(System.in);
 
@@ -197,6 +257,12 @@ public class Bai2 {
                     break;
                 case 8:
                     function8(athletes, result1, result2, result3);
+                    break;
+                case 9:
+                    function9(athletes);
+                    break;
+                case 10:
+                    function10(athletes,result1,result2,result3);
                     break;
             }
         }
