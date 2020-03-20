@@ -127,18 +127,46 @@ public class Bai2 {
 
         }
     }
+    public static void function8(String[] athletes, int[] result1, int[] result2, int[] result3){
+        int c = 0;
+        int[] total = new int[10];
+
+        for (int i = 0; i < athletes.length; i++) {
+            int sum = 0;
+            sum = result1[i] + result2[i] + result3[i];
+            total[c] = sum;
+            c++;
+        }
+
+        String temp = "Null";
+        int temp1= 0;
+        for (int i=0; i< athletes.length; i++){
+            for(int j=i+1; j<athletes.length; j++){
+                if(athletes[i].substring(athletes[i].lastIndexOf(" ")).compareTo(athletes[j].substring(athletes[j].lastIndexOf(" "))) > 0){
+                    temp = athletes[i];
+                    athletes[i]= athletes[j];
+                    athletes[j]= temp;
+
+                    temp1= total[i];
+                    total[i]= total[j];
+                    total[j]= temp1;
+                }
+            }
+        }
+        for (int i=0; i<athletes.length; i++){
+            System.out.println(athletes[i]+" ||dat thanh tich "+total[i]+"kg");
+        }
+    }
 
 
 
     public static void main(String[] args) {
         String[] athletes = {"Truong Tuan Tu", "Luong Xuan Truong", "Bui Kim Quyen", "Duong Hoai Phuong",
-                "Nguyen Van Tanh", "Vuong Thu Hien", "Mai Khanh Van", "Lam Ngoc Linh", "Cao Minh Truong", "Nguyen Van Khan"};
+                "Nguyen Van Tanh", "Vuong Thu Anh", "Mai Khanh Van", "Lam Ngoc Linh", "Cao Minh Truong", "Nguyen Van Khan"};
         int[] result1 = {20, 20, 20, 40, 60, 60, 70, 80, 20, 55};
         int[] result2 = {20, 20, 20, 40, 60, 60, 64, 69, 20, 96};
         int[] result3 = {20, 20, 20, 40, 60, 60, 55, 70, 20, 70};
-//        function1(athletes,result1,result2,result3);
-//        System.out.println("\n\n\n");
-//        function2(athletes,result1,result2,result3);
+
         Scanner sc = new Scanner(System.in);
 
         int loop = 1;
@@ -160,10 +188,16 @@ public class Bai2 {
                     break;
                 case 5:
                     function5(athletes);
+                    break;
                 case 6:
                     function6(athletes, result3);
+                    break;
                 case 7:
                     function7(athletes, result3);
+                    break;
+                case 8:
+                    function8(athletes, result1, result2, result3);
+                    break;
             }
         }
         while (loop == 1);
